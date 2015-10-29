@@ -20,7 +20,7 @@
   <?php
   // set database connection parameters
   $host = "127.0.0.1";
-  $user = "rgordonatrsgc";
+  $user = "rsgc_kelly_c";
   $pass = "";
   $db = "library";
   $port = 3306;
@@ -35,7 +35,7 @@
   
   // Check to see if query succeeded
   if (mysqli_query($connection, $query)) {
-      echo "<p>Success! The book " . htmlspecialchars($_POST['title']) . "was added to the database.</p>";
+      echo "<p>Success! The book " . htmlspecialchars($_POST['title']) . " was added to the database.</p>";
   } else {
       echo "<p>Uh oh! The book " . htmlspecialchars($_POST['title']) . " could not be added to the database.</p>";
   }

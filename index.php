@@ -21,7 +21,7 @@
   <?php
   // set database connection parameters
   $host = "127.0.0.1";
-  $user = "rgordonatrsgc";
+  $user = "rsgc_kelly_c";
   $pass = "";
   $db = "library";
   $port = 3306;
@@ -63,5 +63,52 @@
     <br>
     <input type="submit" value="Submit">
   </form> 
+  <h1>Our Amazing library partons are:</h1>
+  <form action="addPatron.php" method="post">
+    Add Patron:<br>
+    <table>
+      <tr>
+        <td><input type="text" name="firstname" value=""></td>
+        <td><input type="text" name="lastname" value=""></td>
+      </tr>
+    </table>
+    <br>
+    <input type="submit" value="Submit">
+  </form> 
+  <?php
+  $connection = mysqli_connect($host, $user, $pass, $db, $port) or die(mysql_error());
+  // And now perform simple query – make sure it's working
+  $query = "SELECT * FROM patron;";
+  $result = mysqli_query($connection, $query);
+  
+  echo "<table>";
+  echo "<tr>";
+  echo "<th>";
+  echo "ID";
+  echo "</th>";
+  echo "<th>";
+  echo "Student Name";
+  echo "</th>";
+  echo "</tr>";
+  while ($row = mysqli_fetch_assoc($result)) {
+      echo "<tr>";
+      echo "<td>";
+      echo $row['id'];
+      echo "</td>";
+      echo "<td>";
+      echo $row['firstname'];
+      echo "</td>";
+      echo "</tr>";
+      echo "<tr>";
+      echo "<td>";
+      echo $row['id'];
+      echo "</td>";
+      echo "<td>";
+      echo $row['lastname'];
+      echo "</td>";
+      echo "</tr>";
+  }
+  echo "</table>";
+  ?>
 </body>
 </html>
